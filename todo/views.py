@@ -13,6 +13,7 @@ def get_todo_list(request):
     }
     return render(request, 'todo/todo_list.html', context)
 
+
 """
 def add_item(request):
     ""create todo list ""
@@ -28,7 +29,7 @@ def add_item(request):
 def add_item(request):
     """create todo list """
     if request.method == 'POST':
-        form  = ItemForm(request.POST)
+        form = ItemForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('get_todo_list')
@@ -43,7 +44,7 @@ def edit_item(request, item_id):
     """update todo list """
     item = get_object_or_404(Item, id=item_id)
     if request.method == 'POST':
-        form  = ItemForm(request.POST, instance=item)
+        form = ItemForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
             return redirect('get_todo_list')
