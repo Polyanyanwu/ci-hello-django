@@ -22,7 +22,7 @@ class TestViews(TestCase):
 
     def test_get_edit_item_page(self):
         """ edit item view"""
-        item = Item.objects.create(name='Test Todo Item')
+        item = Item.objects.create(name='Test Todo Item', done='False')
         response = self.client.get(f'/edit/{item.id}')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'todo/edit_item.html')
@@ -33,13 +33,14 @@ class TestViews(TestCase):
         self.assertRedirects(response, '/')
 
     def test_can_delete_item(self):
-        """.git/Create a new item object instance
+        """
+        Create a new item object instance
         delete this item
         assert that it redirects to the home page
         Try to return the item from the database using filter and the item_id
         Check the length of existing_items = 0
         """
-        item = Item.objects.create(name='Test Todo Item')
+        item = Item.objects.create(name='Test Todo Item', done='False')
         response = self.client.get(f'/delete/{item.id}')
         self.assertRedirects(response, '/')
         existing_items = Item.objects.filter(id=item.id)
