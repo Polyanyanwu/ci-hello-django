@@ -1,1 +1,1 @@
-web: gunicorn ci-hello-django.wsgi:application
+web: gunicorn ci_hello.wsgi:application
