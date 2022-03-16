@@ -81,9 +81,6 @@ WSGI_APPLICATION = 'ci_hello.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-    'default': dj_database_url.parse('postgres://mcygmvfefrjgbx:61be380839a496566a8b59811bf25de01fb7cc1747f00358a6f208862bdd7384@ec2-52-209-185-5.eu-west-1.compute.amazonaws.com:5432/d58ullob0l0ebg')
-}
 
 
 # Password validation
