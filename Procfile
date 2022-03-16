@@ -1,0 +1,1 @@
+web: gunicorn ci-hello-django.wsgi:application
